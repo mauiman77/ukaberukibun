@@ -94,13 +94,20 @@ main .main-editor > textarea {
     line-height: 3rem;
 }
 
+.toolbox-safearea {
+    height: 2.5rem;
+    width: 2.5rem;
+    position: fixed;
+}
+
 .toolbox {
     height: 30px;
     width: 30px;
     position: fixed;
     background-color: #cf1351;
     border-radius: 0.2rem;
-    top: -1.5rem;
+    top: -1.4rem;
     left: 20px;
     overflow: hidden;
+    transition: 0.2s;
 }
