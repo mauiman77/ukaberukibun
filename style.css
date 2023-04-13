@@ -51,9 +51,20 @@ table {
 
 /* MAIN */
 
+:root {
+    --highlight-color: #cf1351;
+}
+
+::selection {
+    background: var(--highlight-color); /* WebKit/Blink Browsers */
+  }
+  ::-moz-selection {
+    background: var(--highlight-color);
+    color: white;
+  }
+
 html, body, main, main .main-editor {
     height: 100%;
-    overflow: hidden;
 }
 
 main {
@@ -61,15 +72,35 @@ main {
 }
 
 main .main-editor {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: 2rem 1fr;
+    display: flex;
 }
 
 main .main-editor > textarea {
+    box-sizing: border-box;
+    color: rgb(3, 5, 31);
+    font-weight: 400;
+    height: 100%;
+    width: 100%;
     resize: none;
-    grid-column: 1/1;
-    grid-row: 2/3;
+    border-style: none; 
+    border-color: Transparent;
+    outline: none;
     padding: 1rem;
     border-radius: 10px;
+    font-size: 2.5rem;
+    font-family: 'Zilla Slab', serif;
+    border: 1px solid black;
+    line-height: 3rem;
+}
+
+.toolbox {
+    height: 30px;
+    width: 30px;
+    position: fixed;
+    background-color: #cf1351;
+    border-radius: 0.2rem;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    top: -1.5rem;
+    overflow: hidden;
 }
