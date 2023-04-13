@@ -63,7 +63,7 @@ table {
     color: white;
   }
 
-html, body, main, main .main-editor {
+html, body, main, main .editor {
     height: 100%;
 }
 
@@ -71,14 +71,15 @@ main {
     background-color: antiquewhite;
 }
 
-main .main-editor {
+main .editor {
     display: flex;
     flex: 1;
+    transition: 1s;
 }
 
-main .main-editor > textarea {
+main .editor > textarea {
     box-sizing: border-box;
-    color: rgb(3, 5, 31);
+    color: rgb(0, 0, 0);
     font-weight: 400;
     height: 100%;
     width: 100%;

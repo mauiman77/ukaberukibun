@@ -7,3 +7,9 @@ bigBox.addEventListener('mouseover', () => {
 bigBox.addEventListener('mouseout', () => {
   weeBox.style.cssText = ''
 })
+
+function newBox () {
+  const textToAdd = document.createElement('textarea')
+  const mainBit = document.querySelector('.editor')
+  mainBit.appendChild(textToAdd)
+}
