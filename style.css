@@ -73,6 +73,7 @@ main {
 
 main .main-editor {
     display: flex;
+    flex: 1;
 }
 
 main .main-editor > textarea {
@@ -99,8 +100,7 @@ main .main-editor > textarea {
     position: fixed;
     background-color: #cf1351;
     border-radius: 0.2rem;
-    margin-left: 40px;
-    margin-bottom: 40px;
     top: -1.5rem;
+    left: 20px;
     overflow: hidden;
 }
