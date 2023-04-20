@@ -1,3 +1,4 @@
-import { helloWorld } from "./externalTest";
+import { mainSection } from "./createElement";
 
-helloWorld.sayHello();
+
+mainSection.initalisePage();
