@@ -1,4 +1,5 @@
-import { mainSection } from "./createElement";
+import { userInterface } from "./createElement"
 
 
-mainSection.initalisePage();
+userInterface.initialisePage()
+userInterface.newtextArea()
