@@ -100,13 +100,14 @@ main .editor {
 
 main .editor > textarea {
     position: fixed;
-    left: 3rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     box-sizing: border-box;
     color: rgb(0, 0, 0);
     font-weight: 400;
     height: 20rem;
     width: 20rem;
-    resize: none;
     border-style: none; 
     border-color: Transparent;
     outline: none;
@@ -131,13 +132,13 @@ main .editor > textarea {
 }
 
 .toolbox {
-    height: 30px;
-    width: 30px;
+    height: 2rem;
+    width: 20rem;
     position: fixed;
     background-color: #cf1351;
     border-radius: 0.2rem;
     top: 1rem;
-    left: -1.4rem;
+    left: -19rem;
     overflow: hidden;
     transition: 0.2s;
 }
