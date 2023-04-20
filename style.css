@@ -71,16 +71,23 @@ main {
     background-color: rgb(255, 214, 161);
 }
 
+#ui {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 5fr;
+}
+
 main .editor {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 1;
+    grid-column: 2/3;
+    grid-row: 1/2;
 }
 
 main .editor > textarea {
-    box-sizing: border-box;
     color: rgb(0, 0, 0);
     font-weight: 400;
     height: 100%;
@@ -90,11 +97,21 @@ main .editor > textarea {
     border-color: Transparent;
     outline: none;
     padding: 1rem;
-    border-radius: 10px;
     font-size: 2.5rem;
     font-family: 'Fresca', sans-serif;
-    border: 2px solid black;
     line-height: 3rem;
+}
+
+main > .sidebar, main .editor > textarea {
+    box-sizing: border-box;
+    /* border-radius: 10px; */
+    border: 2px solid black;
+}
+
+main .sidebar {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background-color: #cf1351;
 }
 
 
