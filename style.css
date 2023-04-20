@@ -79,7 +79,7 @@ main .editor {
     flex: 1;
 }
 
-/* main .editor > textarea {
+main .editor > textarea {
     box-sizing: border-box;
     color: rgb(0, 0, 0);
     font-weight: 400;
@@ -95,17 +95,11 @@ main .editor {
     font-family: 'Fresca', sans-serif;
     border: 2px solid black;
     line-height: 3rem;
-} */
+}
 
 
-main .editor > textarea {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+/* main .editor > textarea {
     box-sizing: border-box;
-    color: rgb(0, 0, 0);
-    font-weight: 400;
     height: 20rem;
     width: 20rem;
     border-style: none; 
@@ -117,7 +111,7 @@ main .editor > textarea {
     font-family: 'Fresca', sans-serif;
     border: 2px solid black;
     line-height: 3rem;
-}
+} */
 
 
 ::placeholder {
