@@ -52,7 +52,7 @@ table {
 /* MAIN */
 
 :root {
-    --highlight-color: #e9327e;
+    --highlight-color: rgb(147, 6, 248);
 }
 
 ::selection {
@@ -67,6 +67,7 @@ html, body, main, main .editor {
     height: 100%;
     overflow: hidden;
     scrollbar-width: thin;
+    font-family: 'Mukta', sans-serif;
 }
 
 main {
@@ -100,25 +101,25 @@ main .editor > textarea {
     outline: none;
     padding: 1rem;
     font-size: 2.5rem;
-    font-family: 'Fresca', sans-serif;
+    font-family: 'Mukta', sans-serif;
     line-height: 3rem;
 }
 
 main > .sidebar, main .editor > textarea {
     box-sizing: border-box;
     /* border-radius: 10px; */
-    border: 2px solid black;
+    border: 0.4px solid black;
 }
 
 main .sidebar {
     grid-column: 1/2;
     grid-row: 1/2;
-    background-color: #cf1351;
+    background-color: white;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 0.2rem;
     padding: 0 1rem;
-    overflow-y: scroll;
+    overflow-y:auto;
 }
 
 main .sidebar .project {

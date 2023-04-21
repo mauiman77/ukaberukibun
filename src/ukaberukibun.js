@@ -1,7 +1,7 @@
 import userInterface from './createElement';
-import project from './createProject';
+import projects from './createProject';
 
-const jim = project('JimProject', 'Fake Project', 'soon', 1);
+const jim = projects.Create('JimProject', 'Blah blah', 'soon', 1);
 
 function appendTestProjectChild(titleofProject) {
   const sideBar = document.querySelector('.sidebar');
@@ -14,7 +14,4 @@ function appendTestProjectChild(titleofProject) {
 }
 
 userInterface.initialisePage();
-for (let i = 0; i < 20; i++) {
-  appendTestProjectChild(jim.sayTitle());
-}
-console.log(jim.sayTitle());
+appendTestProjectChild(jim.getTitle());

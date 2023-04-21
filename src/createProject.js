@@ -1,8 +1,17 @@
-const project = (title, description, dueDate, priority) => {
-  const sayTitle = () => title;
-  return {
-    title, sayTitle,
+const projects = (() => {
+  const project = (title, description, dueDate, priority) => {
+    const getTitle = () => title;
+    return {
+      title, description, dueDate, priority, getTitle,
+    };
   };
-};
 
-export default project;
+  const Create = (title, description, dueDate, priority) => {
+    const newProject = project(title, description, dueDate, priority);
+    return newProject;
+  };
+
+  return { Create };
+})();
+
+export default projects;
