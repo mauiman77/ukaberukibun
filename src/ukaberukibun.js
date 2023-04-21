@@ -2,6 +2,10 @@ import userInterface from './createElement';
 import projects from './createProject';
 
 const jim = projects.Create('JimProject', 'Blah blah', 'soon', 1);
+const brian = projects.Create('BrianProject', 'Blah blah', 'soon', 1);
+const desmond = projects.Create('DesmondProject', 'Blah blah', 'soon', 1);
+
+const guys = [jim, brian, desmond];
 
 function appendTestProjectChild(titleofProject) {
   const sideBar = document.querySelector('.sidebar');
@@ -14,4 +18,4 @@ function appendTestProjectChild(titleofProject) {
 }
 
 userInterface.initialisePage();
-appendTestProjectChild(jim.getTitle());
+appendTestProjectChild(guys[Math.floor(Math.random() * guys.length)].getTitle());
