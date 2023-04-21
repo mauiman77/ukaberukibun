@@ -1,5 +1,5 @@
 import './style.css';
-import { exist } from './sanityCheck';
+import exist from './sanityCheck';
 
 const userInterface = (() => {
   function createSideBar() {
@@ -44,6 +44,7 @@ const userInterface = (() => {
     body.appendChild(createMain());
     return body;
   };
+
   return { initialisePage, newtextArea };
 })();
 

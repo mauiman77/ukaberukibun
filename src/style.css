@@ -65,6 +65,8 @@ table {
 
 html, body, main, main .editor {
     height: 100%;
+    overflow: hidden;
+    scrollbar-width: thin;
 }
 
 main {
@@ -112,6 +114,18 @@ main .sidebar {
     grid-column: 1/2;
     grid-row: 1/2;
     background-color: #cf1351;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 0 1rem;
+    overflow-y: scroll;
+}
+
+main .sidebar .project {
+    height: 1rem;
+    background-color: aqua;
+    padding: 0.3rem;
+    border-radius: 4px;
 }
 
 

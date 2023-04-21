@@ -1,11 +1,10 @@
-function exist (check) {
-  const checkExists = document.querySelector(check)
+function exist(check) {
+  const checkExists = document.querySelector(check);
   if (checkExists) {
-    return true
+    return true;
   }
-  else {
-    return false
-  }
+
+  return false;
 }
 
-export {exist}
+export default exist;
