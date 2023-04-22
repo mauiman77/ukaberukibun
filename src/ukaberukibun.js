@@ -1,5 +1,6 @@
 import userInterface from './createElement';
 import projects from './createProject';
+import todo from './todo';
 
 const jim = projects.Create('JimProject', 'Blah blah', 'soon', 1);
 const brian = projects.Create('BrianProject', 'Blah blah', 'soon', 1);
@@ -22,3 +23,6 @@ function appendTestProjectChild(titleofProject) {
 
 userInterface.initialisePage();
 appendTestProjectChild(guys[Math.floor(Math.random() * guys.length)].getTitle());
+const epicTodo = todo.Create('Me', 'soon', 1, 'Awesome', jim.title);
+const moreEpicTodo = todo.CreateTodoList(jim.title);
+moreEpicTodo.pushTodoToList(epicTodo.projectName);
