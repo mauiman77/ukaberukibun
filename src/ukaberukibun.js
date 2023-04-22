@@ -23,6 +23,3 @@ function appendTestProjectChild(titleofProject) {
 
 userInterface.initialisePage();
 appendTestProjectChild(guys[Math.floor(Math.random() * guys.length)].getTitle());
-const epicTodo = todo.Create('Me', 'soon', 1, 'Awesome', jim.title);
-const moreEpicTodo = todo.CreateTodoList(jim.title);
-moreEpicTodo.pushTodoToList(epicTodo.projectName);

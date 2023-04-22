@@ -6,7 +6,6 @@ const todo = (() => {
     };
     function pushTodoToList(toPush) {
       list.todoList.push(toPush);
-      console.log(list.todoList);
     }
     return { pushTodoToList };
   };
