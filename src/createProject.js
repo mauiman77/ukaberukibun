@@ -3,10 +3,10 @@ import duplicateError from './alerts';
 const projects = (() => {
   const currentProjects = [];
 
-  const project = (title, description, dueDate, priority) => {
+  const project = (title, description, dueDate, priority, todo = []) => {
     const getTitle = () => title;
     return {
-      title, description, dueDate, priority, getTitle,
+      title, description, dueDate, priority, getTitle, todo,
     };
   };
 
@@ -24,8 +24,8 @@ const projects = (() => {
 
   }
 
-  const Create = (title, description, dueDate, priority) => {
-    const newProject = project(title, description, dueDate, priority);
+  const Create = (title, description, dueDate, priority, todo) => {
+    const newProject = project(title, description, dueDate, priority, todo);
     if (checkForDuplicate(newProject.title)) {
       console.alert(duplicateError);
       return;
@@ -34,7 +34,9 @@ const projects = (() => {
     return newProject;
   };
 
-  return { Create, checkForDuplicate };
+  return {
+    Create, checkForDuplicate,
+  };
 })();
 
 export default projects;
