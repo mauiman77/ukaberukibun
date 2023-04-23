@@ -16,6 +16,10 @@ const userInterface = (() => {
 
   function createTextArea() {
     const textArea = document.createElement('textarea');
+    const closeBtn = document.createElement('div');
+    closeBtn.classList.add('close-btn');
+    closeBtn.textContent = 'Hihihi';
+    textArea.appendChild(closeBtn);
     return textArea;
   }
 
@@ -27,6 +31,9 @@ const userInterface = (() => {
 
   const newtextArea = (id) => {
     const getEditor = document.querySelector('.editor');
+    if (document.querySelector(`textarea > #${id}`)) {
+      return;
+    }
     const makeText = createTextArea();
     makeText.setAttribute('id', id);
     getEditor.appendChild(makeText);
