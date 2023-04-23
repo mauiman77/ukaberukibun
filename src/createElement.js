@@ -19,9 +19,17 @@ const userInterface = (() => {
     return textArea;
   }
 
-  const newtextArea = () => {
+  function removeTextArea() {
+    const textAreaToRemove = document.querySelector('textarea');
+    console.log(textAreaToRemove);
+    return textAreaToRemove.remove();
+  }
+
+  const newtextArea = (id) => {
     const getEditor = document.querySelector('.editor');
-    getEditor.appendChild(createTextArea());
+    const makeText = createTextArea();
+    makeText.setAttribute('id', id);
+    getEditor.appendChild(makeText);
     return getEditor;
   };
 
@@ -45,7 +53,7 @@ const userInterface = (() => {
     return body;
   };
 
-  return { initialisePage, newtextArea };
+  return { initialisePage, newtextArea, removeTextArea };
 })();
 
 export default userInterface;
