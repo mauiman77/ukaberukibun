@@ -56,7 +56,8 @@ table {
 }
 
 ::selection {
-    background: var(--highlight-color); /* WebKit/Blink Browsers */
+    background: var(--highlight-color);
+    color: white; /* WebKit/Blink Browsers */
   }
   ::-moz-selection {
     background: var(--highlight-color);

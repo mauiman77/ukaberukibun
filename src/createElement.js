@@ -1,5 +1,5 @@
 import './style.css';
-import exist from './sanityCheck';
+import { exist } from './sanityCheck';
 
 const userInterface = (() => {
   function createSideBar() {
@@ -33,7 +33,7 @@ const userInterface = (() => {
     }
     if (!exist('.editor')) {
       const editorAppend = createEditor();
-      editorAppend.appendChild(createTextArea());
+      // editorAppend.appendChild(createTextArea());
       mainElement.appendChild(editorAppend);
     }
     return mainElement;

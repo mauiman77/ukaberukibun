@@ -7,4 +7,8 @@ function exist(check) {
   return false;
 }
 
-export default exist;
+function trimSpace(string) {
+  return string.replace(/\s/g, '');
+}
+
+export { exist, trimSpace };
