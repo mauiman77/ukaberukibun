@@ -1,25 +1,16 @@
 import userInterface from './createElement';
-import projects from './createProject';
-import todo from './todo';
+import todos from './createTodo';
 
-const jim = projects.Create('JimProject', 'Blah blah', 'soon', 1);
-const brian = projects.Create('BrianProject', 'Blah blah', 'soon', 1);
-const desmond = projects.Create('DesmondProject', 'Blah blah', 'soon', 1);
-const doosmind = projects.Create('DesmondProject', 'Blah blah', 'soon', 1);
+const jim = todos.Create('Jim Todo', 'Blah blah', 'soon', 1);
 
-const guys = [jim, brian, desmond, doosmind];
-
-console.log(projects.checkForDuplicate(doosmind.title));
-
-function appendTestProjectChild(titleofProject) {
+function appendTestTodoChild(titleofTodo) {
   const sideBar = document.querySelector('.sidebar');
-  const projectBar = document.createElement('div');
-  projectBar.classList.add('project');
-  projectBar.textContent = titleofProject;
-  sideBar.appendChild(projectBar);
+  const todoSidebar = document.createElement('div');
+  todoSidebar.classList.add('todo');
+  todoSidebar.textContent = titleofTodo;
+  sideBar.appendChild(todoSidebar);
 
   return sideBar;
 }
 
 userInterface.initialisePage();
-appendTestProjectChild(guys[Math.floor(Math.random() * guys.length)].getTitle());
