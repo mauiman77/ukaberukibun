@@ -14,13 +14,21 @@ const userInterface = (() => {
     return editor;
   }
 
+  function createBoundBox() {
+    const box = document.createElement('div');
+    box.classList.add('boundbox');
+    return box;
+  }
+
   function createTextArea() {
     const textArea = document.createElement('textarea');
+    const box = createBoundBox();
+    box.appendChild(textArea);
     const closeBtn = document.createElement('div');
     closeBtn.classList.add('close-btn');
     closeBtn.textContent = 'Hihihi';
     textArea.appendChild(closeBtn);
-    return textArea;
+    return box;
   }
 
   function removeTextArea() {
