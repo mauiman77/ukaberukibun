@@ -14,36 +14,41 @@ const userInterface = (() => {
     return editor;
   }
 
-  function createBoundBox() {
+  function createBoundBox(id) {
     const box = document.createElement('div');
     box.classList.add('boundbox');
+    box.setAttribute('id', id);
     return box;
   }
 
-  function createTextArea() {
-    const textArea = document.createElement('textarea');
-    const box = createBoundBox();
-    box.appendChild(textArea);
-    const closeBtn = document.createElement('div');
-    closeBtn.classList.add('close-btn');
-    closeBtn.textContent = 'Hihihi';
-    textArea.appendChild(closeBtn);
-    return box;
-  }
-
-  function removeTextArea() {
-    const textAreaToRemove = document.querySelector('textarea');
+  function removeTextArea(id) {
+    const textAreaToRemove = document.querySelector(`div.boundbox#${id}`);
     console.log(textAreaToRemove);
     return textAreaToRemove.remove();
   }
 
+  function createBtn(id) {
+    const closeBtn = document.createElement('div');
+    closeBtn.classList.add('close-btn');
+    closeBtn.setAttribute('id', id);
+    closeBtn.addEventListener('click', (e) => {
+      removeTextArea(e.target.id);
+    });
+    return closeBtn;
+  }
+
+  function createTextArea(id) {
+    const textArea = document.createElement('textarea');
+    const box = createBoundBox(id);
+    box.appendChild(textArea);
+    const closeBtn = createBtn(id);
+    box.appendChild(closeBtn);
+    return box;
+  }
+
   const newtextArea = (id) => {
     const getEditor = document.querySelector('.editor');
-    if (document.querySelector(`textarea > #${id}`)) {
-      return;
-    }
-    const makeText = createTextArea();
-    makeText.setAttribute('id', id);
+    const makeText = createTextArea(id);
     getEditor.appendChild(makeText);
     return getEditor;
   };

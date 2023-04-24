@@ -146,8 +146,13 @@ main .sidebar .todo {
     height: 15px;
     width: 15px;
     border-radius: 333rem;
-    position: fixed;
-    background-color: red;
-    right: 1%;
+    background-color: rgba(255, 0, 0, 30%);
+    position: absolute;
     top: 1%;
+    margin-left: 5px;
+}
+
+.close-btn:hover {
+    transition: 0.4s;
+    background-color: rgba(255, 0, 0, 100%);
 }
