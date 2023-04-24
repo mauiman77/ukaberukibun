@@ -19,7 +19,11 @@ function appendTestTodoChild(titleofTodo) {
   todoSidebar.setAttribute('id', trimSpace(titleofTodo));
   todoSidebar.textContent = titleofTodo;
   sideBar.appendChild(todoSidebar);
-  todoSidebar.addEventListener('click', (e) => userInterface.newtextArea(e.target.id));
+  todoSidebar.addEventListener('click', (e) => {
+    if (!document.querySelector(`div.boundbox#${e.target.id}`)) {
+      userInterface.newtextArea(e.target.id);
+    }
+  });
 
   return sideBar;
 }

@@ -1,3 +1,5 @@
+/* This only exists for documentative purposes. */
+
 import duplicateError from './alerts';
 
 const todos = (() => {
