@@ -1,5 +1,6 @@
 import './style.css';
 import { exist } from './sanityCheck';
+import todos from './createTodo';
 
 const userInterface = (() => {
   function createSideBar() {
@@ -21,9 +22,13 @@ const userInterface = (() => {
     return box;
   }
 
+  function getTextValue(id) {
+    const textArea = document.querySelector(`div.boundbox#${id} textarea`);
+    console.log(todos.pushToTextList(textArea.value));
+  }
+
   function removeTextArea(id) {
     const textAreaToRemove = document.querySelector(`div.boundbox#${id}`);
-    console.log(textAreaToRemove);
     return textAreaToRemove.remove();
   }
 
@@ -32,6 +37,7 @@ const userInterface = (() => {
     closeBtn.classList.add('close-btn');
     closeBtn.setAttribute('id', id);
     closeBtn.addEventListener('click', (e) => {
+      getTextValue(e.target.id);
       removeTextArea(e.target.id);
     });
     return closeBtn;

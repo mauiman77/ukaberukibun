@@ -1,9 +1,8 @@
-/* This only exists for documentative purposes. */
-
 import duplicateError from './alerts';
 
 const todos = (() => {
   const currentTodos = [];
+  const textList = [];
 
   const todo = (title, description, dueDate, priority) => {
     const getTitle = () => title;
@@ -22,6 +21,11 @@ const todos = (() => {
     return findTitleCount > 1;
   };
 
+  const pushToTextList = (text) => {
+    textList.push(text);
+    return textList;
+  };
+
   function Delete(title) {
 
   }
@@ -37,7 +41,7 @@ const todos = (() => {
   };
 
   return {
-    Create, checkForDuplicate,
+    Create, checkForDuplicate, pushToTextList,
   };
 })();
 
