@@ -3,9 +3,26 @@ import { exist } from './sanityCheck';
 import todos from './createTodo';
 
 const userInterface = (() => {
+  function intialisePopUp() {
+    const popUp = document.createElement('div');
+    popUp.classList.add('popup');
+    return popUp;
+  }
+
+  function createNewBtn() {
+    const newBtn = document.createElement('div');
+    newBtn.classList.add('new-btn');
+    newBtn.addEventListener('click', () => {
+      const popUp = document.querySelector('.popup');
+      popUp.classList.toggle('visible');
+    });
+    return newBtn;
+  }
+
   function createSideBar() {
     const sideBar = document.createElement('div');
     sideBar.classList.add('sidebar');
+    sideBar.appendChild(createNewBtn());
     return sideBar;
   }
 
@@ -80,6 +97,7 @@ const userInterface = (() => {
   const createMain = () => {
     const mainElement = document.createElement('main');
     mainElement.setAttribute('id', 'ui');
+    mainElement.appendChild(intialisePopUp());
     if (!exist('.sidebar')) {
       mainElement.appendChild(createSideBar());
     }

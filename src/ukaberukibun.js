@@ -1,3 +1,4 @@
+import './style.css';
 import userInterface from './createElement';
 import todos from './createTodo';
 import { trimSpace } from './sanityCheck';
