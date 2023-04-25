@@ -2,12 +2,15 @@ import duplicateError from './alerts';
 
 const todos = (() => {
   const currentTodos = [];
-  const textList = [];
 
-  const todo = (title, description, dueDate, priority) => {
+  const todo = (title, description, dueDate, priority, text = '') => {
     const getTitle = () => title;
+    function addText(newText) {
+      text = newText;
+      return text;
+    }
     return {
-      title, description, dueDate, priority, getTitle,
+      title, description, dueDate, priority, getTitle, text, addText,
     };
   };
 
@@ -21,17 +24,12 @@ const todos = (() => {
     return findTitleCount > 1;
   };
 
-  const pushToTextList = (text) => {
-    textList.push(text);
-    return textList;
-  };
-
   function Delete(title) {
 
   }
 
-  const Create = (title, description, dueDate, priority) => {
-    const newTodo = todo(title, description, dueDate, priority);
+  const Create = (title, description, dueDate, priority, text = '') => {
+    const newTodo = todo(title, description, dueDate, priority, text);
     if (checkForDuplicate(newTodo.title)) {
       console.alert(duplicateError);
       return;
@@ -41,7 +39,7 @@ const todos = (() => {
   };
 
   return {
-    Create, checkForDuplicate, pushToTextList,
+    Create, checkForDuplicate,
   };
 })();
 

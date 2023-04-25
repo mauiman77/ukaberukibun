@@ -22,9 +22,24 @@ const userInterface = (() => {
     return box;
   }
 
+  const workingNote = (id, text) => ({ id, text });
+  const workingNoteList = [];
+
+  function lookInWorkingNoteList(id) {
+    for (let i = 0; i < workingNoteList.length; i += 1) {
+      if (workingNoteList[i].id === id) {
+        return workingNoteList[i].text;
+      }
+    }
+    return '';
+  }
+
   function getTextValue(id) {
     const textArea = document.querySelector(`div.boundbox#${id} textarea`);
-    console.log(todos.pushToTextList(textArea.value));
+    if (textArea.value === undefined) {
+      return '';
+    }
+    return textArea.value;
   }
 
   function removeTextArea(id) {
@@ -37,7 +52,9 @@ const userInterface = (() => {
     closeBtn.classList.add('close-btn');
     closeBtn.setAttribute('id', id);
     closeBtn.addEventListener('click', (e) => {
-      getTextValue(e.target.id);
+      const newNote = workingNote(e.target.id, getTextValue(id));
+      workingNoteList.push(newNote);
+      console.log(workingNoteList);
       removeTextArea(e.target.id);
     });
     return closeBtn;
@@ -45,6 +62,7 @@ const userInterface = (() => {
 
   function createTextArea(id) {
     const textArea = document.createElement('textarea');
+    textArea.value = lookInWorkingNoteList(id);
     const box = createBoundBox(id);
     box.appendChild(textArea);
     const closeBtn = createBtn(id);
