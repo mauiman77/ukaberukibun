@@ -70,7 +70,7 @@ const userInterface = (() => {
     closeBtn.setAttribute('id', id);
     closeBtn.addEventListener('click', (e) => {
       const newNote = workingNote(e.target.id, getTextValue(id));
-      workingNoteList.push(newNote);
+      workingNoteList.splice(0, 0, newNote);
       console.log(workingNoteList);
       removeTextArea(e.target.id);
     });

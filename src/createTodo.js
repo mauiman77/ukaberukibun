@@ -24,10 +24,6 @@ const todos = (() => {
     return findTitleCount > 1;
   };
 
-  function Delete(title) {
-
-  }
-
   const Create = (title, description, dueDate, priority, text = '') => {
     const newTodo = todo(title, description, dueDate, priority, text);
     if (checkForDuplicate(newTodo.title)) {
