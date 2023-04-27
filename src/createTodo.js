@@ -3,6 +3,8 @@ import duplicateError from './alerts';
 const todos = (() => {
   const currentTodos = [];
 
+  const idList = ['title', 'description', 'dueDate', 'priority'];
+
   const todo = (title, description, dueDate, priority, text = '') => {
     const getTitle = () => title;
     function addText(newText) {
@@ -35,7 +37,11 @@ const todos = (() => {
   };
 
   return {
-    Create, checkForDuplicate,
+    Create,
+    checkForDuplicate,
+    get idList() {
+      return idList;
+    },
   };
 })();
 

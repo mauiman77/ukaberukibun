@@ -8,7 +8,7 @@ function exist(check) {
 }
 
 function trimSpace(string) {
-  return string.replace(/\s/g, '');
+  return '';
 }
 
 export { exist, trimSpace };

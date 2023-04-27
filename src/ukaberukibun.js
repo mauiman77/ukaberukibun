@@ -3,9 +3,6 @@ import userInterface from './createElement';
 import todos from './createTodo';
 import { trimSpace } from './sanityCheck';
 
-const jim = todos.Create('Jim Todo', 'Blah blah', 'soon', 1);
-const bob = todos.Create('Bob', 'Bob Description', 'soon', 2);
-
 function storeTextContent() {
   let text = document.querySelector('textarea');
   text = text.value;
@@ -30,5 +27,3 @@ function appendTestTodoChild(titleofTodo) {
 }
 
 userInterface.initialisePage();
-appendTestTodoChild(jim.title);
-appendTestTodoChild(bob.title);

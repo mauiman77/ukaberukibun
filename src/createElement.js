@@ -1,12 +1,52 @@
 import './style.css';
-import { exist } from './sanityCheck';
+import { exist, trimSpace } from './sanityCheck';
 import todos from './createTodo';
 
 const userInterface = (() => {
   function intialisePopUp() {
-    const popUp = document.createElement('div');
+    const popUp = document.createElement('form');
+    const text = popUpAppend(popUp);
+    // text.classList.add('popupText');
+    // popUp.appendChild(text);
     popUp.classList.add('popup');
     return popUp;
+  }
+
+  function appendToSidebar(titleofTodo) {
+    const sideBar = document.querySelector('.sidebar');
+    const todoSidebar = document.createElement('div');
+    todoSidebar.classList.add('todo');
+    todoSidebar.setAttribute('id', trimSpace(titleofTodo));
+    todoSidebar.textContent = titleofTodo;
+    sideBar.appendChild(todoSidebar);
+    todoSidebar.addEventListener('click', (e) => {
+      if (!document.querySelector(`div.boundbox#${e.target.id}`)) {
+        userInterface.newtextArea(e.target.id);
+      }
+    });
+
+    return sideBar;
+  }
+
+  function popUpAppend(toAppend) {
+    for (let i = 0; i < 4; i += 1) {
+      const text = document.createElement('textarea');
+      text.classList.add('popupText');
+      for (let c = 0; c < todos.idList.length; c += 1) {
+        text.setAttribute('id', todos.idList[i]);
+      }
+      toAppend.appendChild(text);
+    }
+    const button = document.createElement('button');
+    toAppend.appendChild(button);
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tryTitle = document.querySelector('.popup #title');
+      console.log(tryTitle.value);
+      const john = todos.Create(tryTitle.value, 'Cool', 'Soon', 1);
+      appendToSidebar(john.title);
+    });
+    return toAppend;
   }
 
   function createNewBtn() {
@@ -69,10 +109,13 @@ const userInterface = (() => {
     closeBtn.classList.add('close-btn');
     closeBtn.setAttribute('id', id);
     closeBtn.addEventListener('click', (e) => {
+      const findDupe = workingNoteList.find((item) => item.id === e.target.id);
       const newNote = workingNote(e.target.id, getTextValue(id));
-      workingNoteList.splice(0, 0, newNote);
-      console.log(workingNoteList);
+      if (!findDupe) {
+        workingNoteList.splice(0, 0, newNote);
+      }
       removeTextArea(e.target.id);
+      console.log(workingNoteList);
     });
     return closeBtn;
   }

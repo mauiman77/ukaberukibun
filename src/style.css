@@ -97,15 +97,18 @@ main {
     border: 1px solid black;
 }
 
- textarea {
-    color: rgb(0, 0, 0);
-    font-weight: 400;
-    height: 100%;
-    width: 100%;
+textarea {
     resize: none;
     border-style: none; 
     border-color: Transparent;
     outline: none;
+}
+
+ .editor textarea {
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    height: 100%;
+    width: 100%;
     padding: 1rem;
     font-size: 2.5rem;
     font-family: 'Mukta', sans-serif;
@@ -170,7 +173,7 @@ main .sidebar .todo {
 .popup {
     position: fixed;
     z-index: 500;
-    height: 300px;
+    height: auto;
     width: 300px;
     background-color: grey;
     border-radius: 1rem;
@@ -178,8 +181,25 @@ main .sidebar .todo {
     right: 50%;
     transform: translate(50%, -50%);
     visibility: hidden;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .visible {
     visibility: visible;
+}
+
+.popupText {
+    margin: 0;
+    height: 2rem;
+    width: 100%;
+    padding: 0.4rem
+}
+
+.popup button {
+    height: 20px;
+    width: 40px;
 }
