@@ -16,11 +16,11 @@ const userInterface = (() => {
     const sideBar = document.querySelector('.sidebar');
     const todoSidebar = document.createElement('div');
     todoSidebar.classList.add('todo');
-    todoSidebar.setAttribute('id', trimSpace(titleofTodo));
+    todoSidebar.setAttribute('id', titleofTodo);
     todoSidebar.textContent = titleofTodo;
     sideBar.appendChild(todoSidebar);
     todoSidebar.addEventListener('click', (e) => {
-      if (!document.querySelector(`div.boundbox#${e.target.id}`)) {
+      if (!document.querySelector(`.boundbox#${e.target.id} > textarea`)) {
         userInterface.newtextArea(e.target.id);
       }
     });
@@ -42,8 +42,12 @@ const userInterface = (() => {
     button.addEventListener('click', (e) => {
       e.preventDefault();
       const tryTitle = document.querySelector('.popup #title');
-      console.log(tryTitle.value);
-      const john = todos.Create(tryTitle.value, 'Cool', 'Soon', 1);
+      const tryDescription = document.querySelector('.popup #description');
+      const tryDueDate = document.querySelector('.popup #dueDate');
+      const john = todos.Create(tryTitle.value, tryDescription.value, tryDueDate.value, 1);
+      const popUp = document.querySelector('.popup');
+      popUp.classList.toggle('visible');
+      console.log(john);
       appendToSidebar(john.title);
     });
     return toAppend;
