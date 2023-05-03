@@ -53,20 +53,24 @@ const userInterface = (() => {
     return toAppend;
   }
 
-  function createNewBtn() {
-    const newBtn = document.createElement('div');
-    newBtn.classList.add('new-btn');
-    newBtn.addEventListener('click', () => {
-      const popUp = document.querySelector('.popup');
-      popUp.classList.toggle('visible');
-    });
-    return newBtn;
-  }
+  // function createNewBtn() {
+  //   const newBtn = document.createElement('div');
+  //   newBtn.classList.add('new-btn');
+  //   newBtn.addEventListener('click', () => {
+  //     const popUp = document.querySelector('.popup');
+  //     popUp.classList.toggle('visible');
+  //   });
+  //   return newBtn;
+  // }
 
   function createSideBar() {
     const sideBar = document.createElement('div');
     sideBar.classList.add('sidebar');
-    sideBar.appendChild(createNewBtn());
+    // sideBar.appendChild(createNewBtn());
+    sideBar.addEventListener('click', () => {
+      const popUp = document.querySelector('.popup');
+      popUp.classList.toggle('visible');
+    });
     return sideBar;
   }
 
